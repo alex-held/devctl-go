@@ -16,17 +16,11 @@ builds:
       - darwin
     goarch:
       - amd64
-      - arm
-      - arm64
-      - 386
-    ignore:
-      - goos: darwin
-        goarch: 386
 
 archives:
   - builds:
       - devctl-go
-    name_template: "{{ .ProjectName }}_{{ .Tag }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+    name_template: "{{ .ProjectName }}_{ .Tag }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }{}v{{ .Arm }}{{ end }}"
     wrap_in_directory: false
     format: tar.gz
     files:
