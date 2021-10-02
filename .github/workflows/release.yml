@@ -25,4 +25,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: update new version in devctl-index
-        uses: alex-held/devctl-release-bot@v0.0.43
+        uses: alex-held/devctl-release-bot@v0.0.44
