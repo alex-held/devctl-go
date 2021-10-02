@@ -22,6 +22,13 @@ import (
 	"github.com/alex-held/devctl/pkg/env"
 )
 
+var (
+	version = "dev"
+	commit  = "none"
+	date    = "unknown"
+	builtBy = "unknown"
+)
+
 var errOnlyOsFsSupported = errors.New("only afero.OsFs is supported")
 
 func main() {
@@ -37,6 +44,7 @@ func NewCmd() *cobra.Command {
 		RunE: func(c *cobra.Command, args []string) error {
 			return c.Help()
 		},
+		Version: fmt.Sprintf("devctl-go version %v"),
 	}
 
 	installCmd := &cobra.Command{

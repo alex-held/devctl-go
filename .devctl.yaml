@@ -1,0 +1,39 @@
+apiVersion: alexheld.io/k8s/devctl/v1alpha1
+kind: Plugin
+metadata:
+  name: go
+spec:
+  version: {{ .TagName }}
+  homepage: https://github.com/alex-held/devctl-go
+  platforms:
+    - selector:
+        matchLabels:
+          os: darwin
+          arch: amd64
+      {{addURIAndSha "https://github.com/alex-held/devctl-go/releases/download/{{ .TagName }}/kubectl-evict-pod_{{ .TagName }}_darwin_amd64.tar.gz" .TagName }}
+      bin: devctl-go
+    - selector:
+        matchLabels:
+          os: linux
+          arch: amd64
+      {{addURIAndSha "https://github.com/alex-held/devctl-go/releases/download/{{ .TagName }}/kubectl-evict-pod_{{ .TagName }}_linux_amd64.tar.gz" .TagName }}
+      bin: devctl-go
+  shortDescription: devctl-go installs, upgrades, manages and provides information about your go sdk installations
+  description: |
+    Usage:
+      Show current system default go version:
+        devctl go list
+
+      Show installed versions:
+        devctl go list
+
+      Installing a new version:
+        devctl go install [version]
+        devctl go install "v1.17.1"
+
+      Setting the system default go version:
+        devctl go use [version]
+        devctl go use "v1.17.1"
+
+      This plugin installs, upgrades, manages and provides information about your go sdk installations.
+      Read more documentation at: https://github.com/alex-held/devctl-go
