@@ -1,0 +1,31 @@
+version: "v1.2.3"
+plugin:
+  name: "golang"
+  pkg: "golang"
+  cmd: "go"
+  help: |-
+    USAGE
+      go [subcommand]
+  subcommands:
+    - cmd: "list"
+      help: |-
+        USAGE
+          go list
+    - cmd: "current"
+      help: |-
+        USAGE
+          go current
+    - cmd: "install"
+      help: |-
+        USAGE
+          go install [version]
+
+        EXAMPLE
+          go install v1.17.1
+    - cmd: "use"
+      help: |-
+        USAGE
+          go use [version]
+
+        EXAMPLE
+          go use v1.17.1
